@@ -4,7 +4,7 @@
 
 ### Navbar
 
--   Fix avatar
+-   Fix avatar ✅
 
 ### Helpers
 
