@@ -1,4 +1,4 @@
-<x-layout.app title="My Section" activeMenu="course.create" :withError="false">
+<x-layout.app title="Submodul Saya" activeMenu="course.create" :withError="false">
     <div class="container my-5">
         @push('style')
             <style>
@@ -50,10 +50,10 @@
             </style>
         @endpush
 
-        <x-breadcrumb title="My Section" :breadcrumbs="[
+        <x-breadcrumb title="Submodul Saya" :breadcrumbs="[
             ['label' => 'Dashboard', 'url' => url('/')],
-            ['label' => 'Course', 'url' => route('course.index')],
-            ['label' => 'My Section'],
+            ['label' => 'Modul Saya', 'url' => route('course.my-modules', ['id' => $modul_detail->modul->course_id])],
+            ['label' => 'Submodul Saya'],
         ]" />
 
         <div class="row g-3">

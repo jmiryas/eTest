@@ -1,6 +1,6 @@
-<x-layout.app title="Modul Section" activeMenu="modul-detail" :withError="true">
+<x-layout.app title="Submodul" activeMenu="modul-detail" :withError="true">
     <div class="my-5 container-fluid">
-        <x-breadcrumb title="Modul Section" :breadcrumbs="[['label' => 'Dashboard', 'url' => url('/')], ['label' => 'Modul Section']]" />
+        <x-breadcrumb title="Submodul" :breadcrumbs="[['label' => 'Dashboard', 'url' => url('/')], ['label' => 'Submodul']]" />
 
         <div class="card">
             <div class="card-header">

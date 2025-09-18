@@ -35,7 +35,9 @@ Route::middleware('auth')->group(function () {
     // Master
 
     Route::get("peserta/generate", [PesertaController::class, "generate"])->name("peserta.generate");
-    Route::resource("peserta", PesertaController::class);
+    Route::resource("peserta", PesertaController::class)->parameters([
+        "peserta" => "peserta"
+    ]);
 
     Route::get("course/my-course", [CourseController::class, "myCourse"])->name("course.my-course");
     Route::get("course/{id}/my-modules", [CourseController::class, "myModules"])->name("course.my-modules");

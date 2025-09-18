@@ -1,9 +1,6 @@
-<x-layout.app title="Course" activeMenu="course" :withError="true">
+<x-layout.app title="Kursus" activeMenu="course" :withError="true">
     <div class="my-5 container-fluid">
-        <x-breadcrumb title="Course" :breadcrumbs="[
-            ['label' => 'Dashboard', 'url' => url('/')],
-            ['label' => 'Course'],
-        ]" />
+        <x-breadcrumb title="Kursus" :breadcrumbs="[['label' => 'Dashboard', 'url' => url('/')], ['label' => 'Kursus']]" />
 
         <div class="card">
             <div class="card-header">
@@ -18,19 +15,11 @@
 
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group">
-                            <input
-                                type="text"
-                                name="search"
-                                class="form-control"
-                                placeholder="Cari course..."
-                                value="{{ old('search', request('search')) }}"
-                                hx-get="{{ route('course.index') }}"
-                                hx-trigger="keyup[keyCode==13], keyup changed delay:500ms"
-                                hx-target="#course-table"
-                                hx-push-url="true"
-                                hx-indicator="#search-loading"
-                                hx-include="#filter-checkboxes input:checked"
-                            >
+                            <input type="text" name="search" class="form-control" placeholder="Cari course..."
+                                value="{{ old('search', request('search')) }}" hx-get="{{ route('course.index') }}"
+                                hx-trigger="keyup[keyCode==13], keyup changed delay:500ms" hx-target="#course-table"
+                                hx-push-url="true" hx-indicator="#search-loading"
+                                hx-include="#filter-checkboxes input:checked">
 
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">Filter</button>

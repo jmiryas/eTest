@@ -1,13 +1,13 @@
-<x-layout.app title="Tambah Modul Section" activeMenu="modul-detail.create" :withError="false">
+<x-layout.app title="Tambah Submodul" activeMenu="modul-detail.create" :withError="false">
     @push('style')
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     @endpush
 
     <div class="container my-5">
-        <x-breadcrumb title="Tambah Modul Section" :breadcrumbs="[
+        <x-breadcrumb title="Tambah Submodul" :breadcrumbs="[
             ['label' => 'Dashboard', 'url' => url('/')],
-            ['label' => 'Modul Section', 'url' => route('modul-detail.index')],
-            ['label' => 'Tambah Modul Section'],
+            ['label' => 'Submodul', 'url' => route('modul-detail.index')],
+            ['label' => 'Tambah Submodul'],
         ]" />
 
         <div class="card">

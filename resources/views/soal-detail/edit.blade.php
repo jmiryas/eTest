@@ -1,16 +1,17 @@
-<x-layout.app title="Perbarui Soal Detail" activeMenu="soal-detail.edit" :withError="false">
+<x-layout.app title="Perbarui Opsi Paket Soal" activeMenu="soal-detail.edit" :withError="false">
     <div class="container my-5">
-        <x-breadcrumb title="Perbarui Soal Detail" :breadcrumbs="[
+        <x-breadcrumb title="Perbarui Opsi Paket Soal" :breadcrumbs="[
             ['label' => 'Dashboard', 'url' => url('/')],
-            ['label' => 'Soal Detail', 'url' => route('soal-detail.index')],
-            ['label' => 'Perbarui Soal Detail'],
+            ['label' => 'Opsi Paket Soal', 'url' => route('soal-detail.index')],
+            ['label' => 'Perbarui Opsi Paket Soal'],
         ]" />
 
         <div class="card">
             <div class="card-body">
                 <x-error-list />
 
-                <form action="{{ route('soal-detail.update', $soalDetail) }}" method="POST" role="form" enctype="multipart/form-data">
+                <form action="{{ route('soal-detail.update', $soalDetail) }}" method="POST" role="form"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

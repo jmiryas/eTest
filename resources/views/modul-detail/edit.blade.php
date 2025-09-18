@@ -1,16 +1,17 @@
-<x-layout.app title="Perbarui Modul Detail" activeMenu="modul-detail.edit" :withError="false">
+<x-layout.app title="Perbarui Submodul" activeMenu="modul-detail.edit" :withError="false">
     <div class="container my-5">
-        <x-breadcrumb title="Perbarui Modul Detail" :breadcrumbs="[
+        <x-breadcrumb title="Perbarui Submodul" :breadcrumbs="[
             ['label' => 'Dashboard', 'url' => url('/')],
-            ['label' => 'Modul Detail', 'url' => route('modul-detail.index')],
-            ['label' => 'Perbarui Modul Detail'],
+            ['label' => 'Submodul', 'url' => route('modul-detail.index')],
+            ['label' => 'Perbarui Submodul'],
         ]" />
 
         <div class="card">
             <div class="card-body">
                 <x-error-list />
 
-                <form action="{{ route('modul-detail.update', $modulDetail) }}" method="POST" role="form" enctype="multipart/form-data">
+                <form action="{{ route('modul-detail.update', $modulDetail) }}" method="POST" role="form"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

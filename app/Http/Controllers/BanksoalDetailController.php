@@ -24,7 +24,7 @@ class BanksoalDetailController extends Controller implements HasMiddleware
 
     public function index(Request $request): View
     {
-        $query = BanksoalDetail::query();
+        $query = BanksoalDetail::with(["banksoal"]);
 
         // tambahkan kolom yang mau dikecualikan di pencarian
         $except = ['created_by', 'updated_by'];
@@ -62,11 +62,11 @@ class BanksoalDetailController extends Controller implements HasMiddleware
     public function store(Request $request): RedirectResponse
     {
         $validatedData = $request->validate([
-            	'banksoal_id' => 'nullable|string|max:50',
-	'label' => 'nullable|string|max:10',
-	'isi' => 'nullable|string',
-	'is_correct' => 'nullable|boolean',
-	'urutan' => 'nullable|integer',
+            'banksoal_id' => 'nullable|string|max:50',
+            'label' => 'nullable|string|max:10',
+            'isi' => 'nullable|string',
+            'is_correct' => 'nullable|boolean',
+            'urutan' => 'nullable|integer',
         ]);
 
         try {
@@ -94,11 +94,11 @@ class BanksoalDetailController extends Controller implements HasMiddleware
     public function update(Request $request, BanksoalDetail $banksoalDetail): RedirectResponse
     {
         $validatedData = $request->validate([
-            	'banksoal_id' => 'nullable|string|max:50',
-	'label' => 'nullable|string|max:10',
-	'isi' => 'nullable|string',
-	'is_correct' => 'nullable|boolean',
-	'urutan' => 'nullable|integer',
+            'banksoal_id' => 'nullable|string|max:50',
+            'label' => 'nullable|string|max:10',
+            'isi' => 'nullable|string',
+            'is_correct' => 'nullable|boolean',
+            'urutan' => 'nullable|integer',
         ]);
 
         try {

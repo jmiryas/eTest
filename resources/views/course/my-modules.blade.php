@@ -1,4 +1,4 @@
-<x-layout.app title="My Modules" activeMenu="course.create" :withError="false">
+<x-layout.app title="Modul Saya" activeMenu="course.create" :withError="false">
     <div class="container my-5">
         @push('style')
             <style>
@@ -13,10 +13,10 @@
             </style>
         @endpush
 
-        <x-breadcrumb title="My Modules" :breadcrumbs="[
+        <x-breadcrumb title="Modul Saya" :breadcrumbs="[
             ['label' => 'Dashboard', 'url' => url('/')],
-            ['label' => 'Course', 'url' => route('course.index')],
-            ['label' => 'My Modules'],
+            ['label' => 'Kursus Saya', 'url' => route('course.my-course')],
+            ['label' => 'Modul Saya'],
         ]" />
 
         <div class="row g-3">

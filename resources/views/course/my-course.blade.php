@@ -1,9 +1,9 @@
-<x-layout.app title="My Course" activeMenu="course.create" :withError="false">
+<x-layout.app title="Kursus Saya" activeMenu="course.create" :withError="false">
     <div class="container my-5">
-        <x-breadcrumb title="My Course" :breadcrumbs="[
+        <x-breadcrumb title="Kursus Saya" :breadcrumbs="[
             ['label' => 'Dashboard', 'url' => url('/')],
-            ['label' => 'Course', 'url' => route('course.index')],
-            ['label' => 'My Course'],
+            // ['label' => 'Course', 'url' => route('course.index')],
+            ['label' => 'Kursus Saya'],
         ]" />
 
         <div>

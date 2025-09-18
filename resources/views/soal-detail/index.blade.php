@@ -1,6 +1,6 @@
-<x-layout.app title="Opsi Soal" activeMenu="soal-detail" :withError="true">
+<x-layout.app title="Opsi Paket Soal" activeMenu="soal-detail" :withError="true">
     <div class="my-5 container-fluid">
-        <x-breadcrumb title="Opsi Soal" :breadcrumbs="[['label' => 'Dashboard', 'url' => url('/')], ['label' => 'Opsi Soal']]" />
+        <x-breadcrumb title="Opsi Paket Soal" :breadcrumbs="[['label' => 'Dashboard', 'url' => url('/')], ['label' => 'Opsi Paket Soal']]" />
 
         <div class="card">
             <div class="card-header">

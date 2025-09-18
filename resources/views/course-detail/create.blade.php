@@ -1,9 +1,9 @@
-<x-layout.app title="Tambah Course Enrollment" activeMenu="course-detail.create" :withError="false">
+<x-layout.app title="Tambah Peserta Kursus" activeMenu="course-detail.create" :withError="false">
     <div class="container my-5">
-        <x-breadcrumb title="Tambah Course Enrollment" :breadcrumbs="[
+        <x-breadcrumb title="Tambah Peserta Kursus" :breadcrumbs="[
             ['label' => 'Dashboard', 'url' => url('/')],
             ['label' => 'Course Detail', 'url' => route('course-detail.index')],
-            ['label' => 'Tambah Course Enrollment'],
+            ['label' => 'Tambah Peserta Kursus'],
         ]" />
 
         <div class="card">

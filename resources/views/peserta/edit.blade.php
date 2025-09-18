@@ -10,7 +10,8 @@
             <div class="card-body">
                 <x-error-list />
 
-                <form action="{{ route('peserta.update', $peserta) }}" method="POST" role="form" enctype="multipart/form-data">
+                <form action="{{ route('peserta.update', $peserta) }}" method="POST" role="form"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

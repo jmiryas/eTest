@@ -1,36 +1,26 @@
 <x-layout.app title="Banksoal Detail" activeMenu="banksoal-detail" :withError="true">
     <div class="my-5 container-fluid">
-        <x-breadcrumb title="Banksoal Detail" :breadcrumbs="[
-            ['label' => 'Dashboard', 'url' => url('/')],
-            ['label' => 'Banksoal Detail'],
-        ]" />
+        <x-breadcrumb title="Banksoal Detail" :breadcrumbs="[['label' => 'Dashboard', 'url' => url('/')], ['label' => 'Banksoal Detail']]" />
 
         <div class="card">
             <div class="card-header">
                 <div class="row g-3 justify-content-between align-items-center">
-                    @can('etest banksoal-detail create')
+                    {{-- @can('etest banksoal-detail create')
                         <div class="col-12 col-md-auto">
                             <a href="{{ route('banksoal-detail.create') }}" class="btn btn-primary w-100 w-md-fit">
                                 <span class="bx bx-plus me-1"></span>Tambah Data
                             </a>
                         </div>
-                    @endcan
+                    @endcan --}}
 
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="input-group">
-                            <input
-                                type="text"
-                                name="search"
-                                class="form-control"
-                                placeholder="Cari banksoal detail..."
-                                value="{{ old('search', request('search')) }}"
+                            <input type="text" name="search" class="form-control"
+                                placeholder="Cari banksoal detail..." value="{{ old('search', request('search')) }}"
                                 hx-get="{{ route('banksoal-detail.index') }}"
                                 hx-trigger="keyup[keyCode==13], keyup changed delay:500ms"
-                                hx-target="#banksoal-detail-table"
-                                hx-push-url="true"
-                                hx-indicator="#search-loading"
-                                hx-include="#filter-checkboxes input:checked"
-                            >
+                                hx-target="#banksoal-detail-table" hx-push-url="true" hx-indicator="#search-loading"
+                                hx-include="#filter-checkboxes input:checked">
 
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">Filter</button>

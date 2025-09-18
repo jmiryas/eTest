@@ -335,7 +335,13 @@ class SoalController extends Controller implements HasMiddleware
             ))
             ->toArray();
 
-        return view('soal.edit', compact('soal', 'modul_sections'));
+        $group_code_soals = Banksoal::select("group_code")
+            ->distinct()
+            ->orderBy("group_code")
+            ->pluck("group_code", "group_code")
+            ->toArray();
+
+        return view('soal.edit', compact('soal', 'modul_sections', 'group_code_soals'));
     }
 
     public function update(Request $request, Soal $soal): RedirectResponse

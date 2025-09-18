@@ -3,7 +3,7 @@
 $nav = [
     "General" => [
         [
-            "title" => "Home",
+            "title" => "Beranda",
             "icon" => '<i class="menu-icon bx bx-home"></i>', // Home
             'route' => 'dashboard',
             'permissions' => null
@@ -19,7 +19,7 @@ $nav = [
                     'icon' => '<i class="menu-icon bx bx-user"></i>', // user
                 ],
                 [
-                    'title' => 'Course',
+                    'title' => 'Kursus',
                     'route' => 'course.index',
                     'permissions' => ['etest course view'],
                     'icon' => '<i class="menu-icon bx bx-book-content"></i>', // course = buku dengan konten
@@ -31,7 +31,7 @@ $nav = [
                     'icon' => '<i class="menu-icon bx bx-file"></i>', // modul = dokumen
                 ],
                 [
-                    'title' => 'Modul Section',
+                    'title' => 'Submodul',
                     'route' => 'modul-detail.index',
                     'permissions' => ['etest modul-detail view'],
                     'icon' => '<i class="menu-icon bx bx-git-branch"></i>', // section = bagian/cabang
@@ -51,11 +51,11 @@ $nav = [
             ],
         ],
         [
-            "title" => "Back Office",
+            "title" => "Manajemen",
             "icon" => '<i class="menu-icon bx bx-briefcase"></i>', // back office = kerjaan kantor
             "submenus" => [
                 [
-                    'title' => 'Course Enrollment',
+                    'title' => 'Peserta Kursus',
                     'route' => 'course-detail.index',
                     'permissions' => ['etest course-detail view'],
                     'icon' => '<i class="menu-icon bx bx-user-plus"></i>' // enrollment = tambah peserta
@@ -77,7 +77,7 @@ $nav = [
     ],
     "Peserta" => [
         [
-            "title" => "My Course",
+            "title" => "Kursus Saya",
             "icon" => '<i class="menu-icon bx bx-book-reader"></i>', // My Course
             'route' => 'course.my-course',
             'permissions' => ['etest course view-peserta'],

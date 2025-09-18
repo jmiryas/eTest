@@ -1,16 +1,17 @@
-<x-layout.app title="Perbarui Course" activeMenu="course.edit" :withError="false">
+<x-layout.app title="Perbarui Kursus" activeMenu="course.edit" :withError="false">
     <div class="container my-5">
-        <x-breadcrumb title="Perbarui Course" :breadcrumbs="[
+        <x-breadcrumb title="Perbarui Kursus" :breadcrumbs="[
             ['label' => 'Dashboard', 'url' => url('/')],
-            ['label' => 'Course', 'url' => route('course.index')],
-            ['label' => 'Perbarui Course'],
+            ['label' => 'Kursus', 'url' => route('course.index')],
+            ['label' => 'Perbarui Kursus'],
         ]" />
 
         <div class="card">
             <div class="card-body">
                 <x-error-list />
 
-                <form action="{{ route('course.update', $course) }}" method="POST" role="form" enctype="multipart/form-data">
+                <form action="{{ route('course.update', $course) }}" method="POST" role="form"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

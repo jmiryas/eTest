@@ -1,9 +1,9 @@
-<x-layout.app title="Tambah Soal" activeMenu="soal.create" :withError="false">
+<x-layout.app title="Tambah Paket Soal" activeMenu="soal.create" :withError="false">
     <div class="container my-5">
-        <x-breadcrumb title="Tambah Soal" :breadcrumbs="[
+        <x-breadcrumb title="Tambah Paket Soal" :breadcrumbs="[
             ['label' => 'Dashboard', 'url' => url('/')],
             ['label' => 'Soal', 'url' => route('soal.index')],
-            ['label' => 'Tambah Soal'],
+            ['label' => 'Tambah Paket Soal'],
         ]" />
 
         <div class="card">

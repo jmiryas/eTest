@@ -1,6 +1,6 @@
-<x-layout.app title="Course Enrollment" activeMenu="course-detail" :withError="true">
+<x-layout.app title="Peserta Kursus" activeMenu="course-detail" :withError="true">
     <div class="my-5 container-fluid">
-        <x-breadcrumb title="Course Enrollment" :breadcrumbs="[['label' => 'Dashboard', 'url' => url('/')], ['label' => 'Course Enrollment']]" />
+        <x-breadcrumb title="Peserta Kursus" :breadcrumbs="[['label' => 'Dashboard', 'url' => url('/')], ['label' => 'Peserta Kursus']]" />
 
         <div class="card">
             <div class="card-header">
