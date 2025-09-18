@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Modul;
 use App\Models\ModulDetail;
 use App\Models\ModuldetailSection;
+use App\Models\ProgressUser;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -23,6 +25,36 @@ class ModulDetailController extends Controller implements HasMiddleware
             new Middleware('permission:etest modul-detail edit', only: ['edit', 'update']),
             new Middleware('permission:etest modul-detail delete', only: ['destroy']),
         ];
+    }
+
+    public function konfirmasi(Request $request)
+    {
+        $expected = "saya sudah mempelajari dan memahami materi ini";
+
+        $request->merge([
+            "konfirmasi" => strtolower(trim($request->input("konfirmasi", ""))),
+        ]);
+
+        $validatedData = $request->validate([
+            "modul_detail_id" => "required|exists:modul_detail,id",
+            "konfirmasi" => "required|in:$expected",
+        ]);
+
+        $modul_detail = ModulDetail::with(["modul", "moduldetail_section"])
+            ->where("id", $validatedData["modul_detail_id"])
+            ->first();
+
+        ProgressUser::create([
+            "peserta_id" => auth()->user()->username,
+            "course_id" => $modul_detail->modul->course_id,
+            "modul_id" => $modul_detail->modul->id,
+            "section_id" => $modul_detail->id,
+            "section_type" => $modul_detail->moduldetail_section->nama,
+            "waktu_submit" => Carbon::now(),
+        ]);
+
+        return redirect()->route('course.my-modules', ['id' => $modul_detail->modul->course_id])
+            ->with('success', 'Materi berhasil diselesaikan');
     }
 
     public function index(Request $request): View
@@ -59,7 +91,20 @@ class ModulDetailController extends Controller implements HasMiddleware
     {
         $modulDetail = new ModulDetail();
 
-        $moduls = Modul::orderBy("judul")->pluck("judul", "id")->toArray();
+        $courses = Course::with(["moduls" => function ($q) {
+            $q->selectRaw("id, course_id, CONCAT('Modul ', urutan, ' : ', judul) AS judul, id")
+                ->orderBy("urutan");
+        }])
+            ->orderBy("judul")
+            ->where("is_active", true)
+            ->get();
+
+        $moduls = $courses->mapWithKeys(function ($course) {
+            return [
+                $course->judul => $course->moduls->pluck("judul", "id")->toArray()
+            ];
+        })->toArray();
+
         $sections = ModuldetailSection::orderBy("urutan")->pluck("nama", "id")->toArray();
 
         return view('modul-detail.create', compact('modulDetail', 'moduls', 'sections'));
@@ -112,7 +157,20 @@ class ModulDetailController extends Controller implements HasMiddleware
 
     public function edit(ModulDetail $modulDetail): View
     {
-        $moduls = Modul::orderBy("judul")->pluck("judul", "id")->toArray();
+        $courses = Course::with(["moduls" => function ($q) {
+            $q->selectRaw("id, course_id, CONCAT('Modul ', urutan, ' : ', judul) AS judul, id")
+                ->orderBy("urutan");
+        }])
+            ->orderBy("judul")
+            ->where("is_active", true)
+            ->get();
+
+        $moduls = $courses->mapWithKeys(function ($course) {
+            return [
+                $course->judul => $course->moduls->pluck("judul", "id")->toArray()
+            ];
+        })->toArray();
+
         $sections = ModuldetailSection::orderBy("urutan")->pluck("nama", "id")->toArray();
 
         return view('modul-detail.edit', compact('modulDetail', 'moduls', 'sections'));

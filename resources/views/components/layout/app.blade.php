@@ -179,6 +179,15 @@
 
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+        @if (session('noback'))
+            <script type="text/javascript">
+                window.history.pushState(null, null, window.location.href);
+                window.onpopstate = function() {
+                    window.history.pushState(null, null, window.location.href);
+                };
+            </script>
+        @endif
+
         @if (session()->has('success') || session()->has('error') || session()->has('warning') || session()->has('info'))
             <script>
                 const Toast = Swal.mixin({

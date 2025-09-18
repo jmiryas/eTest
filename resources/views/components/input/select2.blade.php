@@ -1,20 +1,20 @@
-{{-- 
+{{--
 contoh select biasa:
-<x-input.select2 
-    name="status" 
-    class="@error('status') is-invalid @enderror" 
-    placeholder="Pilih Status" 
+<x-input.select2
+    name="status"
+    class="@error('status') is-invalid @enderror"
+    placeholder="Pilih Status"
     :options="[
         '1' => 'Aktif',
         '0' => 'Non Aktif'
-    ]" 
-    :selected="old('status', $data->status)" 
+    ]"
+    :selected="old('status', $data->status)"
 />
 
 contoh multiple select:
-<x-input.select2 
-    name="roles[]" 
-    :options="$roles" 
+<x-input.select2
+    name="roles[]"
+    :options="$roles"
     :multiple="true"
     :selected="old('roles', $user->roles->pluck('id')->toArray())"
 />

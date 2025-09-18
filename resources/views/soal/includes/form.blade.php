@@ -13,20 +13,16 @@
         </div>
 
         <div class="mb-4">
-            <label for="tipe" class="form-label">Tipe</label>
-            <x-input.select2 name="tipe" id="tipe"
-                class="form-control {{ $errors->has('tipe') ? 'is-invalid' : '' }}" placeholder="Pilih Tipe"
-                :options="[
-                    'multiple_choice' => 'Pilihan Ganda',
-                    'essay' => 'Esai',
-                    '' => '',
-                ]" selected="{{ old('tipe', $soal?->tipe) }}" />
-            @error('tipe')
+            <label for="tipe" class="form-label">Group Code Soal</label>
+            <x-input.select2 name="group_code" id="tipe"
+                class="form-control {{ $errors->has('group_code') ? 'is-invalid' : '' }}" placeholder="Pilih Group Code"
+                :options="$group_code_soals" />
+            @error('group_code')
                 <small class="invalid-feedback">{{ $message }}</small>
             @enderror
         </div>
 
-        <div class="mb-4">
+        {{-- <div class="mb-4">
             <label for="isi" class="form-label">Isi</label>
             <textarea name="isi" id="isi" rows="4"
                 class="form-control {{ $errors->has('isi') ? 'is-invalid' : '' }}" placeholder="Masukkan isi">{{ old('isi', $soal?->isi) }}</textarea>
@@ -74,6 +70,6 @@
             @error('urutan')
                 <small class="invalid-feedback">{{ $message }}</small>
             @enderror
-        </div>
+        </div> --}}
     </div>
 </div>

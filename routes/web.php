@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BanksoalController;
+use App\Http\Controllers\BanksoalDetailController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseDetailController;
 use App\Http\Controllers\LandingController;
@@ -41,17 +43,24 @@ Route::middleware('auth')->group(function () {
     Route::resource("course", CourseController::class);
 
     Route::resource("modul", ModulController::class);
+
+    Route::post("modul-detail/konfirmasi", [ModulDetailController::class, "konfirmasi"])->name("modul-detail.konfirmasi");
     Route::resource("modul-detail", ModulDetailController::class);
+
     Route::resource("moduldetail-section", ModuldetailSectionController::class);
+
+    Route::resource("banksoal", BanksoalController::class);
+
+    Route::resource("banksoal-detail", BanksoalDetailController::class);
+
+    // Back Office
+
+    Route::resource("course-detail", CourseDetailController::class);
 
     Route::match(["get", "post"], "soal/test/{modulDetailId}", [SoalController::class, "test"])->name("soal.test");
 
     Route::resource("soal", SoalController::class);
     Route::resource("soal-detail", SoalDetailController::class);
-
-    // Back Office
-
-    Route::resource("course-detail", CourseDetailController::class);
 
     // Log
 

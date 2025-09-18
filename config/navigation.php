@@ -37,16 +37,16 @@ $nav = [
                     'icon' => '<i class="menu-icon bx bx-git-branch"></i>', // section = bagian/cabang
                 ],
                 [
-                    'title' => 'Soal',
-                    'route' => 'soal.index',
-                    'permissions' => ['etest soal view'],
-                    'icon' => '<i class="menu-icon bx bx-help-circle"></i>', // soal = tanda tanya
+                    'title' => 'Bank Soal',
+                    'route' => 'banksoal.index',
+                    'permissions' => ['etest banksoal view'],
+                    'icon' => '<i class="menu-icon bx bx-book-open"></i>',
                 ],
                 [
-                    'title' => 'Opsi Soal',
-                    'route' => 'soal-detail.index',
-                    'permissions' => ['etest soal-detail view'],
-                    'icon' => '<i class="menu-icon bx bx-list-ol"></i>', // opsi jawaban = list bernomor
+                    'title' => 'Opsi Bank Soal',
+                    'route' => 'banksoal-detail.index',
+                    'permissions' => ['etest banksoal-detail view'],
+                    'icon' => '<i class="menu-icon bx bx-task"></i>',
                 ],
             ],
         ],
@@ -59,6 +59,18 @@ $nav = [
                     'route' => 'course-detail.index',
                     'permissions' => ['etest course-detail view'],
                     'icon' => '<i class="menu-icon bx bx-user-plus"></i>' // enrollment = tambah peserta
+                ],
+                [
+                    'title' => 'Paket Soal',
+                    'route' => 'soal.index',
+                    'permissions' => ['etest soal view'],
+                    'icon' => '<i class="menu-icon bx bx-help-circle"></i>', // soal = tanda tanya
+                ],
+                [
+                    'title' => 'Opsi Paket Soal',
+                    'route' => 'soal-detail.index',
+                    'permissions' => ['etest soal-detail view'],
+                    'icon' => '<i class="menu-icon bx bx-list-ol"></i>', // opsi jawaban = list bernomor
                 ],
             ],
         ],

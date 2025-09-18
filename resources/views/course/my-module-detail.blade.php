@@ -61,7 +61,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center flex-wrap mb-6 gap-2">
-                            <div class="me-1">
+                            <div>
                                 <div class="d-flex align-items-center">
                                     <span class="badge bg-label-info">
                                         {{ $modul_detail->moduldetail_section->nama }}
@@ -72,19 +72,22 @@
                             </div>
 
                             <div>
-                                @if ($modul_detail->moduldetail_section_id != 'materi')
-                                    @if ($section_status[$modul_detail->id] == 'done')
-                                        <span class="badge bg-label-success">
-                                            <i class="bx bx-check-circle me-1"></i>
-                                            Done
-                                        </span>
-                                    @else
-                                        <a href="{{ route('soal.test', ['modulDetailId' => $modul_detail->id]) }}"
-                                            class="btn btn-primary d-inline-flex align-items-center">
-                                            <i class="bx bx-task me-2"></i>
-                                            Kerjakan
-                                        </a>
-                                    @endif
+                                @if (data_get($section_status, $modul_detail->id) === 'done')
+                                    <span class="badge bg-label-success">
+                                        <i class="bx bx-check-circle me-1"></i>
+                                        Done
+                                    </span>
+                                @elseif ($modul_detail->moduldetail_section_id === 'materi')
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modalSelesaiBelajar">
+                                        <i class='bx bx-check-circle me-1'></i> Selesai Belajar
+                                    </button>
+                                @else
+                                    <a href="{{ route('soal.test', ['modulDetailId' => $modul_detail->id]) }}"
+                                        class="btn btn-primary d-inline-flex align-items-center">
+                                        <i class="bx bx-task me-2"></i>
+                                        Kerjakan
+                                    </a>
                                 @endif
                             </div>
                         </div>
@@ -246,6 +249,58 @@
                         </div>
                     @endforeach
                 </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalSelesaiBelajar" data-bs-backdrop="static" tabindex="-1">
+            <div class="modal-dialog">
+                <form action="{{ route('modul-detail.konfirmasi') }}" method="POST" class="modal-content">
+                    @csrf
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="backDropModalTitle">Selesai belajar materi ini?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- Alert -->
+                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                            <i class="bx bx-info-circle me-2 fs-4"></i>
+                            <div>Apakah kamu benar-benar sudah mempelajari dan menguasai materi ini?</div>
+                        </div>
+
+                        <!-- Instruksi -->
+                        <h6 class="fw-semibold">Instruksi</h6>
+                        <p class="mb-2">Silakan ketik ulang teks di bawah ini untuk konfirmasi:</p>
+
+                        <!-- Teks Konfirmasi -->
+                        <p class="font-monospace bg-light px-3 py-2 rounded">
+                            Saya sudah mempelajari dan memahami materi ini
+                        </p>
+
+                        <input type="hidden" name="modul_detail_id" value="{{ $modul_detail->id }}" />
+
+                        <!-- Input -->
+                        <div class="mb-3">
+                            <label for="confirmationText" class="form-label">Ketik ulang teks di atas</label>
+                            <input name="konfirmasi" type="text"
+                                class="form-control {{ $errors->has('konfirmasi') ? 'is-invalid' : '' }}"
+                                placeholder="Masukkan teks konfirmasi di sini" />
+                            @error('konfirmasi')
+                                <small class="invalid-feedback">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

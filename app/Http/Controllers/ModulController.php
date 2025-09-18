@@ -57,6 +57,8 @@ class ModulController extends Controller implements HasMiddleware
     {
         $modul = new Modul();
 
+        $modul->urutan = 1;
+
         $courses = Course::orderBy("judul")->pluck("judul", "id")->toArray();
 
         return view('modul.create', compact('modul', 'courses'));
@@ -91,7 +93,9 @@ class ModulController extends Controller implements HasMiddleware
 
     public function edit(Modul $modul): View
     {
-        return view('modul.edit', compact('modul'));
+        $courses = Course::orderBy("judul")->pluck("judul", "id")->toArray();
+
+        return view('modul.edit', compact('modul', 'courses'));
     }
 
     public function update(Request $request, Modul $modul): RedirectResponse

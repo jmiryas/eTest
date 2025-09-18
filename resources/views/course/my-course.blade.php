@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header d-flex flex-wrap justify-content-between gap-4">
                         <div class="card-title mb-0 me-1">
-                            <h5 class="mb-0">My Courses</h5>
+                            {{-- <h5 class="mb-0">My Courses</h5> --}}
                             <p class="mb-0">Kamu punya {{ count($myCourses) }} course</p>
                         </div>
 
@@ -35,8 +35,9 @@
                                 <div class="col-sm-6 col-lg-4">
                                     <div class="card p-2 h-100 shadow-none border">
                                         <div class="rounded-2 text-center mb-4">
-                                            <a href="app-academy-course-details.html"><img class="img-fluid"
-                                                    src="{{ asset('img/default/course.jpg') }}" alt="Course" /></a>
+                                            <a href="{{ route('course.my-modules', ['id' => $item->id]) }}"><img
+                                                    class="img-fluid" src="{{ asset('img/default/course.jpg') }}"
+                                                    alt="Course" /></a>
                                         </div>
 
                                         <div class="card-body p-4 pt-2">

@@ -60,7 +60,7 @@ class SoalDetailController extends Controller implements HasMiddleware
         $soalDetail->urutan = 1;
         $soalDetail->is_correct = false;
 
-        $soals = Soal::orderBy("isi")->pluck("isi", "id");
+        $soals = Soal::orderBy("urutan")->pluck("isi", "id");
 
         return view('soal-detail.create', compact('soalDetail', 'soals'));
     }

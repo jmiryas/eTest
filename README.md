@@ -73,6 +73,8 @@
 -   Bisa berupa multiple choice atau essay (input) ✅
 -   Tiap tiap soal punya durasi masing masing ✅
 -   Jika durasi habis, maka akan otomatis submit ✅
+-   Tidak boleh back ketika sudah submit
+-   Disable klik kanan/console atau apapun yang berkaitan dengan JavaScript
 
 ### My Score
 

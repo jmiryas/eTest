@@ -1,7 +1,7 @@
 <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
     <div class="container-xxl">
         <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4 ms-0">
-            <a href="index.html" class="app-brand-link">
+            <a href="{{ route('dashboard') }}" class="app-brand-link">
                 <img src="{{ asset('img/logo/logo.png') }}" alt="" height="40px">
 
                 <span class="app-brand-text demo menu-text fw-bold text-heading">

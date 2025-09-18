@@ -257,6 +257,26 @@ return [
             ]
         ],
         [
+            'group' => 'bank soal',
+            'pengguna' => ['admin'],
+            'access' => [
+                'etest banksoal view',
+                'etest banksoal create',
+                'etest banksoal edit',
+                'etest banksoal delete',
+            ]
+        ],
+        [
+            'group' => 'opsi bank soal',
+            'pengguna' => ['admin'],
+            'access' => [
+                'etest banksoal-detail view',
+                'etest banksoal-detail create',
+                'etest banksoal-detail edit',
+                'etest banksoal-detail delete',
+            ]
+        ],
+        [
             'group' => 'course enrollment',
             'pengguna' => ['admin'],
             'access' => [
